@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"></link>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"> </script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Variables
+    const baseDeDatos = [
+        {
+            id: 1,
+            nombre: 'Tenis Running Azul-Blanco adidas',
+            precio: 269900,
+            imagen: 'imagenes/tennisPerforme.jpg'
+        },
+        {
+            id: 2,
+            nombre: 'Tenis Running Negro-Blanco adidas',
+            precio: 299900,
+            imagen: 'imagenes/tennisAdidas.jpg'
+        },
+        {
+            id: 3,
+            nombre: 'Camiseta Tipo Polo Azul Oscura Hamer',
+            precio: 52999,
+            imagen: 'imagenes/camisetaPolo.jpg'
+        },
+        {
+            id: 4,
+            nombre: 'CAMISA AMATISS HOMBRE 102001',
+            precio: 49900,
+            imagen: 'imagenes/camisa.jpg'
+        },
+        {
+            id: 5,
+            nombre: 'Jean Azul Levis 510',
+            precio: 219900,
+            imagen: 'imagenes/jeanLevis.jpg'
+        },
+        {
+            id: 6,
+            nombre: 'Chaqueta Negro-Salmon adidas Performance',
+            precio: 148900,
+            imagen: 'imagenes/chaquetaAdidas.jpg'
+        },
+        {
+            id: 7,
+            nombre: 'Camiseta Alemania Local',
+            precio: 279900,
+            imagen: 'imagenes/camisaAlemania.webp'
+        },
+        {
+            id: 8,
+            nombre: 'Camiseta Colombia Visitante',
+            precio: 148900,
+            imagen: 'imagenes/camisaColombia.webp'
+        },
+        {
+            id: 9,
+            nombre: 'Camiseta Local Colombia',
+            precio: 249900,
+            imagen: 'imagenes/camisaLocalColombia.webp'
+        },
+        {
+            id: 10,
+            nombre: 'Camiseta Sport Blanca',
+            precio: 79900,
+            imagen: 'imagenes/camisetaSport.webp'
+        },
+        {
+            id: 11,
+            nombre: 'Camiseta Sport Roja',
+            precio: 79900,
+            imagen: 'imagenes/camisaDeportiva.jpg'
+        },
+        {
+            id: 12,
+            nombre: 'Chanclas Adilette Agua 2.0',
+            precio: 97900,
+            imagen: 'imagenes/chanchasAdiletteAgua2.webp'
+        },
+        {
+            id: 13,
+            nombre: 'Guayos Cesped Aritficial',
+            precio: 249900,
+            imagen: 'imagenes/guayos.webp'
+        },
+        {
+            id: 14,
+            nombre: 'Guayos X Speed Portal Multiterreno',
+            precio: 249900,
+            imagen: 'imagenes/guayosXSpeedPortalMultiterreno.webp'
+        },
+        {
+            id: 15,
+            nombre: 'Tenis Duramo Sl',
+            precio: 299900,
+            imagen: 'imagenes/tenisDuramoSl.webp'
+        },
+        {
+            id: 16,
+            nombre: 'Tenis Duramo Sl Gris',
+            precio: 250900,
+            imagen: 'imagenes/tenisDuramoSlGris.webp'
+        },
+        {
+            id: 17,
+            nombre: 'Tenis Run Falcon',
+            precio: 215900,
+            imagen: 'imagenes/tenisRunFalcon.webp'
+        },
+        {
+            id: 18,
+            nombre: 'Tenis Duramo Sl 2.0',
+            precio: 309900,
+            imagen: 'imagenes/TenisDuramoSl2.0.webp'
+        },
+        {
+            id: 19,
+            nombre: 'Guayos X Speed Portal Multiterreno ',
+            precio: 249900,
+            imagen: 'imagenes/guayosXSpeedPortalMultiterreno.webp'
+        },
+        {
+            id: 20,
+            nombre: 'Chaqueta Termica Varrilite',
+            precio: 759900,
+            imagen: 'imagenes/chaquetaTermicaVarilite.webp'
+        },
+        {
+            id: 21,
+            nombre: 'Camiseta Visitante Alemania',
+            precio: 309900,
+            imagen: 'imagenes/camiseta-visitanteAlemania.webp'
+        },
+        {
+            id: 22,
+            nombre: 'Camiseta Local España',
+            precio: 279900,
+            imagen: 'imagenes/camisetaLocalEspaña.webp'
+        },
+        {
+            id: 23,
+            nombre: 'Camiseta Adicolor Classics 3 Rayas',
+            precio: 159900,
+            imagen: 'imagenes/camisetaAdicolorClassics3Rayas.webp'
+        },
+        {
+            id: 24,
+            nombre: 'Camiseta Badge Of Sport Basic',
+            precio: 98900,
+            imagen: 'imagenes/camisetaBadgeOfSportBasic.webp'
+        },
+        {
+            id: 25,
+            nombre: 'Camiseta Polo Blanca',
+            precio: 159900,
+            imagen: 'imagenes/camisetaPolo3Rayas.webp'
+        },
+        {
+            id: 26,
+            nombre: 'Sudadera Deportiva Beckenbauer',
+            precio: 359900,
+            imagen: 'imagenes/sudaderaDeportivaBeckenbauer.webp'
+        },
+        {
+            id: 27,
+            nombre: 'Sudadera  De Entrenamiento Argentina',
+            precio: 250000,
+            imagen: 'imagenes/SudaderaEntrenamientoArgentina.webp'
+        },
+        {
+            id: 28,
+            nombre: 'Buzo Negro Adidas',
+            precio: 379900,
+            imagen: 'imagenes/buzoConCapucha3Rayas.webp'
+        },
+        {
+            id: 29,
+            nombre: 'Buzo Azul Adidas',
+            precio: 379900,
+            imagen: 'imagenes/buzoConCapucha3RayasAzul.webp'
+        },
+        {
+            id: 30,
+            nombre: 'Gorra Essentials',
+            precio: 89900,
+            imagen: 'imagenes/gorraEssentials.webp'
+        },
+        {
+            id: 31,
+            nombre: 'Jean Lavado Oscuro',
+            precio: 259900,
+            imagen: 'imagenes/jeanLavadoOscuro.webp'
+        },
+        {
+            id: 32,
+            nombre: 'Jean Fit Orleans',
+            precio: 124900,
+            imagen: 'imagenes/jeanFitOrleans.webp'
+        }, 
+    ];
+
+    let carrito = [];
+    const divisa = '$';
+    const DOMitems = document.querySelector('#items');
+    const DOMcarrito = document.querySelector('#carrito');
+    const DOMtotal = document.querySelector('#total');
+    const DOMbotonVaciar = document.querySelector('#boton-vaciar');
+
+    // Funciones
+
+    /**
+    * Dibuja todos los productos a partir de la base de datos. No confundir con el carrito
+    */
+    function renderizarProductos() {
+        baseDeDatos.forEach((info) => {
+            // Estructura
+            const miNodo = document.createElement('div');
+            miNodo.classList.add('card', 'col-sm-4');
+            // Body
+            const miNodoCardBody = document.createElement('div');
+            miNodoCardBody.classList.add('card-producto');
+            // Titulo
+            const miNodoTitle = document.createElement('h5');
+            miNodoTitle.classList.add('card-titulo');
+            miNodoTitle.textContent = info.nombre;
+            // Imagen
+            const miNodoImagen = document.createElement('img');
+            miNodoImagen.classList.add('img-fluid');
+            miNodoImagen.setAttribute('src', info.imagen);
+            // Precio
+            const miNodoPrecio = document.createElement('p');
+            miNodoPrecio.classList.add('card-text');
+            miNodoPrecio.textContent = `${divisa}${info.precio}`;
+            // Boton 
+            const miNodoBoton = document.createElement('button');
+            miNodoBoton.textContent = 'Añadir';
+            miNodoBoton.setAttribute('marcador', info.id);
+            miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+            // Insertamos
+            miNodoCardBody.appendChild(miNodoImagen);
+            miNodoCardBody.appendChild(miNodoTitle);
+            miNodoCardBody.appendChild(miNodoPrecio);
+            miNodoCardBody.appendChild(miNodoBoton);
+            miNodo.appendChild(miNodoCardBody);
+            DOMitems.appendChild(miNodo);
+        });
+    }
+
+    /**
+    * Evento para añadir un producto al carrito de la compra
+    */
+    function anyadirProductoAlCarrito(evento) {
+        // Anyadimos el Nodo a nuestro carrito
+        carrito.push(evento.target.getAttribute('marcador'))
+        // Actualizamos el carrito 
+        renderizarCarrito();
+
+    }
+
+    /**
+    * Dibuja todos los productos guardados en el carrito
+    */
+    function renderizarCarrito() {
+        // Vaciamos todo el html
+        DOMcarrito.textContent = '';
+        // Quitamos los duplicados
+        const carritoSinDuplicados = [...new Set(carrito)];
+        // Generamos los Nodos a partir de carrito
+        carritoSinDuplicados.forEach((item) => {
+            // Obtenemos el item que necesitamos de la variable base de datos
+            const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                // ¿Coincide las id? Solo puede existir un caso
+                return itemBaseDatos.id === parseInt(item);
+            });
+            // Cuenta el número de veces que se repite el producto
+            const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+                // ¿Coincide las id? Incremento el contador, en caso contrario no mantengo
+                return itemId === item ? total += 1 : total;
+            }, 0);
+            // Creamos el nodo del item del carrito
+            const miNodo = document.createElement('li');
+            miNodo.classList.add('list-group-item', 'text-right', 'mx-2');
+            miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${divisa}${miItem[0].precio}`;
+            // Boton de borrar
+            const miBoton = document.createElement('button');
+            miBoton.classList.add('btn', 'btn-danger', 'mx-5');
+            miBoton.textContent = 'X';
+            miBoton.style.marginLeft = '1rem';
+            miBoton.dataset.item = item;
+            miBoton.addEventListener('click', borrarItemCarrito);
+            // Mezclamos nodos
+            miNodo.appendChild(miBoton);
+            DOMcarrito.appendChild(miNodo);
+        });
+       // Renderizamos el precio total en el HTML
+       DOMtotal.textContent = calcularTotal();
+    }
+
+    /**
+    * Evento para borrar un elemento del carrito
+    */
+    function borrarItemCarrito(evento) {
+        // Obtenemos el producto ID que hay en el boton pulsado
+        const id = evento.target.dataset.item;
+        // Borramos todos los productos
+        carrito = carrito.filter((carritoId) => {
+            return carritoId !== id;
+        });
+        // volvemos a renderizar
+        renderizarCarrito();
+    }
+
+    /**
+     * Calcula el precio total teniendo en cuenta los productos repetidos
+     */
+    function calcularTotal() {
+        // Recorremos el array del carrito 
+        return carrito.reduce((total, item) => {
+            // De cada elemento obtenemos su precio
+            const miItem = baseDeDatos.filter((itemBaseDatos) => {
+                return itemBaseDatos.id === parseInt(item);
+            });
+            // Los sumamos al total
+            return total + miItem[0].precio;
+        }, 0).toFixed(2);
+    }
+
+    /**
+    * Varia el carrito y vuelve a dibujarlo
+    */
+    function vaciarCarrito() {
+        // Limpiamos los productos guardados
+        carrito = [];
+        // Renderizamos los cambios
+        renderizarCarrito();
+    }
+
+    // Eventos
+    DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+
+    // Inicio
+    renderizarProductos();
+    renderizarCarrito();
+  });
+  </script>
+
+  </head>
+<body>
+    <div class="container">
+        <div class="contenido-principal">
+            <!-- Elementos generados a partir del JSON -->
+            <main id="items"></main>
+            <!-- Carrito -->
+            <aside class="col-sm-4">
+                <img src="imagenes/carrito.jpeg" class="carrito-img">
+                <!-- Elementos del carrito -->
+                <ul id="carrito" class="list-group"></ul>
+                <hr>
+                <!-- Precio total -->
+                <p class="text-right">Total: <span id="total"></span></p>
+                <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+                <button class="button-buy" onclick="comprar()">Comprar</button>
+
+                <script type="text/javascript">
+                 
+                 function comprar(){
+                 swal("COMPRA EXITOSA","GRACIAS POR CONFIAR EN NOSOTROS","success");
+                 }
+                    </script>
+            </aside>
+        </div>
+    </div>
+    
+
+
+</body>
+</html>
